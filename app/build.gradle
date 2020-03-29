@@ -14,6 +14,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
     }
 
     buildTypes {
@@ -22,7 +27,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -32,8 +36,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.litepal.android:kotlin:3.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    //数据解析器
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    //rxjava支持
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.7.1'
+
 }
