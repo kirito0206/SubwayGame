@@ -1,21 +1,48 @@
 package com.example.subwaygame.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
     private String name;
     private String headPicture;
     private List<String> achievementList;
-    private List<Flower> flowerList;
+    private int flowers;
+    private int waterNumber;
+    private int fertilizerNumber;
     private Flower flower;
 
-    public Player(String name, String hp, ArrayList<String> achievements, ArrayList<Flower> flowers, Flower flower) {
-        setName(name);
-        setHeadPicture(hp);
-        setAchievementList(achievements);
-        setFlowerList(flowers);
-        setFlower(flower);
+    public Player(String name, String headPicture, List<String> achievementList, int flowers, int waterNumber, int fertilizerNumber, Flower flower) {
+        this.name = name;
+        this.headPicture = headPicture;
+        this.achievementList = achievementList;
+        this.flowers = flowers;
+        this.waterNumber = waterNumber;
+        this.fertilizerNumber = fertilizerNumber;
+        this.flower = flower;
+    }
+
+    public int getFertilizerNumber() {
+        return fertilizerNumber;
+    }
+
+    public void setFertilizerNumber(int fertilizerNumber) {
+        this.fertilizerNumber = fertilizerNumber;
+    }
+
+    public int getFlowers() {
+        return flowers;
+    }
+
+    public void setFlowers(int flowers) {
+        this.flowers = flowers;
+    }
+
+    public int getWaterNumber() {
+        return waterNumber;
+    }
+
+    public void setWaterNumber(int waterNumber) {
+        this.waterNumber = waterNumber;
     }
 
     public String getName() {
@@ -40,14 +67,6 @@ public class Player {
 
     public void setAchievementList(List<String> achievementList) {
         this.achievementList = achievementList;
-    }
-
-    public List<Flower> getFlowerList() {
-        return flowerList;
-    }
-
-    public void setFlowerList(List<Flower> flowerList) {
-        this.flowerList = flowerList;
     }
 
     public Flower getFlower() {

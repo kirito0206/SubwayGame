@@ -78,7 +78,7 @@
         android:src="@drawable/question"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button"
+        android:id="@+id/collect_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
@@ -90,5 +90,19 @@
         app:layout_constraintTop_toBottomOf="@id/question_button"
         app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/loosen"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/exchange_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:fabSize="mini"
+        app:maxImageSize="40dp"
+        app:layout_constraintTop_toBottomOf="@id/collect_button"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/achievement"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

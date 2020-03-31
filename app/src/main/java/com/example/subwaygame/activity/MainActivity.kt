@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         fertilize_button.setOnClickListener(this)
         achievement_button.setOnClickListener(this)
         question_button.setOnClickListener(this)
+        collect_button.setOnClickListener(this)
+        exchange_button.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -32,20 +34,41 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             fertilize_button -> fertilize()
             achievement_button -> achievement()
             question_button -> question()
+            collect_button -> collect()
+            exchange_button -> exchange()
         }
     }
 
     private fun water(){
-        MyApplication.getInstance().flower.waterNumber++
+        if (MyApplication.getInstance().waterNumber > 10){
+            MyApplication.getInstance().waterNumber -= 10
+            var t = 1.0
+            if (MyApplication.getInstance().flower.cutFunction > 0){
+                t+=0.5
+                MyApplication.getInstance().flower.cutFunction--
+            }
+            if (MyApplication.getInstance().flower.fertilizerFunction > 0){
+                t+=1
+                MyApplication.getInstance().flower.fertilizerFunction--
+            }
+            MyApplication.getInstance().flower.waterNumber+= (t*10).toInt()
+        }
         Toast.makeText(this,"浇水了！！", Toast.LENGTH_SHORT).show()
     }
 
     private fun cut(){
+        MyApplication.getInstance().flower.cutFunction+=5
         Toast.makeText(this,"修剪了！！", Toast.LENGTH_SHORT).show()
     }
 
     private fun fertilize(){
-        Toast.makeText(this,"施肥了！！", Toast.LENGTH_SHORT).show()
+        if (MyApplication.getInstance().fertilizerNumber >0){
+            MyApplication.getInstance().fertilizerNumber--
+            MyApplication.getInstance().flower.fertilizerFunction+=3
+            Toast.makeText(this,"施肥了！！", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this,"没有可施肥的肥料，快去乘车/每日问答获取吧！！", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun achievement(){
@@ -56,5 +79,17 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         var intentToQuestion = Intent()
         intentToQuestion.setClass(this,QuestionActivity::class.java)
         startActivity(intentToQuestion)
+    }
+
+    private fun collect(){
+        var intentToCollect = Intent()
+        intentToCollect.setClass(this,CollectActivity::class.java)
+        startActivity(intentToCollect)
+    }
+
+    private fun exchange(){
+        var intentToExchange = Intent()
+        intentToExchange.setClass(this,ExchangeActivity::class.java)
+        startActivity(intentToExchange)
     }
 }

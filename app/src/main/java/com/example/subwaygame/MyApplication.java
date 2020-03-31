@@ -22,7 +22,7 @@ public class MyApplication extends Application {
         LitePal.getDatabase();
         player = LitePal.findFirst(Player.class);
         if (player == null)
-            player = new Player("kirito","123",new ArrayList<String>(),new ArrayList<Flower>(),new Flower());
+            player = new Player("kirito","123",new ArrayList<String>(),0,50,0,new Flower());
     }
 
     public static Context getContext(){
