@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.subwaygame.MyApplication
 import com.example.subwaygame.R
 import com.example.subwaygame.data.Gift
 import kotlinx.android.synthetic.main.item_grid_layout.*
@@ -20,14 +22,15 @@ class GiftGridAdapter(val context: Context, private var giftList: MutableList<Gi
             var holder = ViewHolder()
             holder.desc = view.findViewById(R.id.grid_description)
             holder.pic = view.findViewById(R.id.grid_image)
-            holder.quest = view.findViewById(R.id.grid_quest)
+            holder.name = view.findViewById(R.id.grid_name)
             view.tag = holder
 
             var gift = giftList?.get(position)
             if (gift != null) {
-                holder.pic.setImageResource(R.drawable.water)
+                //holder.pic.setImageResource(gift.picture)
+                Glide.with(MyApplication.getContext()).load(gift.picture).override(600,200).into(holder.pic)
                 holder.desc.text = gift.description
-                holder.quest.setText("需要鲜花*"+gift.needNumber)
+                holder.name.text = gift.name
             }
             return view
         } else {
@@ -43,9 +46,9 @@ class GiftGridAdapter(val context: Context, private var giftList: MutableList<Gi
     }
 
     inner class ViewHolder {
-        lateinit var desc: TextView
+        lateinit var name: TextView
         lateinit var pic: ImageView
-        lateinit var quest : Button
+        lateinit var desc : Button
     }
 
     // 在这个示例中不用，Android 要求实现此方法

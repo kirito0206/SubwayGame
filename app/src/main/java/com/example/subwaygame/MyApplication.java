@@ -9,6 +9,7 @@ import com.example.subwaygame.data.Player;
 import org.litepal.LitePal;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyApplication extends Application {
     private static Context context;
@@ -20,9 +21,14 @@ public class MyApplication extends Application {
         context = getApplicationContext();
         LitePal.initialize(context);
         LitePal.getDatabase();
-        player = LitePal.findFirst(Player.class);
-        if (player == null)
-            player = new Player("kirito","123",new ArrayList<String>(),0,50,0,new Flower());
+        /*List<Player> players = LitePal.findAll(Player.class);
+        if (players != null && !players.isEmpty()){
+            player = players.get(0);
+        }*/
+        if (player == null){
+            player = new Player("kirito","123",new ArrayList<String>(),0,100,1,new Flower());
+            player.save();
+        }
     }
 
     public static Context getContext(){

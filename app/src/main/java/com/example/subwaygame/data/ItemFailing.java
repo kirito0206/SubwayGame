@@ -8,12 +8,19 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.example.subwaygame.MyApplication;
 import com.example.subwaygame.R;
+import com.example.subwaygame.activity.CollectActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,13 +100,16 @@ public class ItemFailing extends View implements Runnable {
     protected void onDraw(Canvas canvas) {
         if(!isplaying)
         {
-            /*canvas.translate(50,50);
-            Bitmap gg= BitmapFactory.decodeResource(getResources(),R.drawable.gg);
-            canvas.drawBitmap(gg,0,0,null);*/
+            list.clear();
+            Integer n =MyApplication.getInstance().getWaterNumber();
+            MyApplication.getInstance().setWaterNumber(n+collectNumber);
+            Message msg = new Message();
+            msg.what = 1;
+            CollectActivity.handler.getMHandler().sendMessage(msg);
             return;
         }
         String text0 = "收集水滴数: "+collectNumber;
-        String text1 = "剩余时间数:"+timeAll%4;
+        String text1 = "剩余时间数:"+timeAll/4;
         canvas.drawText(text1, widthScreen-400,80,mPaint);
         canvas.drawText(text0,widthScreen-400,160,mPaint);
         for(int i=0;i < list.size();i++)

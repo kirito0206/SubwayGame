@@ -3,4 +3,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="one_images">
+        <item>@drawable/one_1</item>
+        <item>@drawable/one_2</item>
+        <item>@drawable/one_3</item>
+        <item>@drawable/one_4</item>
+        <item>@drawable/one_5</item>
+        <item>@drawable/one_6</item>
+    </string-array>
+
 </resources>

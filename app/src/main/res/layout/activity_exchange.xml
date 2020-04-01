@@ -12,7 +12,8 @@
         android:id="@+id/tab_layout"
         app:tabPaddingTop="30dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:tabGravity="center"/>
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

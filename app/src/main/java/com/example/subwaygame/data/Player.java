@@ -1,8 +1,10 @@
 package com.example.subwaygame.data;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.List;
 
-public class Player {
+public class Player extends LitePalSupport {
     private String name;
     private String headPicture;
     private List<String> achievementList;

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FlagTheme">
-        <activity android:name=".activity.ExchangeActivity"></activity>
+        <activity android:name=".activity.BagActivity"></activity>
+        <activity android:name=".activity.ExchangeActivity" />
         <activity android:name=".activity.CollectActivity" />
         <activity android:name=".activity.QuestionActivity" />
         <activity android:name=".activity.MainActivity">
