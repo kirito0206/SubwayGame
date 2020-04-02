@@ -87,7 +87,9 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     private fun achievement(){
-
+        var intentToAchievement = Intent()
+        intentToAchievement.setClass(this,AchievementActivity::class.java)
+        startActivity(intentToAchievement)
     }
 
     private fun question(){
