@@ -127,6 +127,6 @@
         app:maxImageSize="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/achievement"/>
+        android:src="@drawable/bag"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
