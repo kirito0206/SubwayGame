@@ -70,7 +70,7 @@ class ExchangeActivity : AppCompatActivity() {
                     when(position){
                         0->tab.text = "折扣券/优惠券"
                         1->tab.text = "实物种子"
-                        2->tab.text = "实物鲜花"
+                        2->tab.text = "实物周边"
                     }
                 }
         ).attach()

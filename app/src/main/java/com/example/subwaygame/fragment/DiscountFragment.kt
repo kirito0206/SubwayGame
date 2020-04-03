@@ -20,7 +20,7 @@ class DiscountFragment : Fragment() {
         var giftList = ArrayList<Gift>()
         giftList.add(Gift(R.drawable.water,"地铁出行八折券","需要鲜花*1"))
         giftList.add(Gift(R.drawable.water,"快车出行八折券","需要鲜花*1"))
-        giftList.add(Gift(R.drawable.water,"KFC八折券","需要鲜花*1"))
+        giftList.add(Gift(R.drawable.water,"共享单车八折券","需要鲜花*1"))
         giftList.add(Gift(R.drawable.water,"金拱门八折券","需要鲜花*1"))
         giftList.add(Gift(R.drawable.water,"星巴克八折券","需要鲜花*1"))
         view.grid_view.adapter = GiftGridAdapter(MyApplication.getContext(),giftList)
