@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_item.view.*
 class SeedFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val view = inflater!!.inflate(R.layout.fragment_item, container, false)
+        val view = inflater.inflate(R.layout.fragment_item, container, false)
         var giftList = ArrayList<Gift>()
         giftList.add(Gift(R.drawable.one_1,"郁金香种子","需要鲜花*2"))
         giftList.add(Gift(R.drawable.one_1,"薰衣草种子","需要鲜花*2"))

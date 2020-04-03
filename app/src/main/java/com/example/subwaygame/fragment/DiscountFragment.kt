@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_item.view.*
 
 class DiscountFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_item, container, false)
+        val view = inflater.inflate(R.layout.fragment_item, container, false)
         var giftList = ArrayList<Gift>()
         giftList.add(Gift(R.drawable.water,"地铁出行八折券","需要鲜花*1"))
         giftList.add(Gift(R.drawable.water,"快车出行八折券","需要鲜花*1"))
