@@ -73,6 +73,9 @@ class QuestionActivity : AppCompatActivity() {
                 if (questions != null && questions.msg == "success" && questions.newslist.isNotEmpty()) {
                     questionText = questions.newslist[0].quest
                     answerText = questions.newslist[0].result
+                    answerText.trim()
+                    answerText.replace(" ","")
+                    answerText.replace(" ","")
                 }
                 var message = Message()
                 message.what = 1

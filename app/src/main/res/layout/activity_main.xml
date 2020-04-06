@@ -8,6 +8,39 @@
     tools:context=".activity.MainActivity">
 
     <ImageView
+        android:id="@+id/water_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exchange_button"
+        android:maxWidth="120dp"
+        android:maxHeight="120dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/wateranimation" />
+    <ImageView
+        android:id="@+id/cut_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:maxWidth="160dp"
+        android:maxHeight="160dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/cutanimation"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+        android:id="@+id/fertilize_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/fertilizeanimation"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
         android:id="@+id/flower_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
