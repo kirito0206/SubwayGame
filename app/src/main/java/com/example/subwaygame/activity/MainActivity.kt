@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.subwaygame.MyApplication
 import com.example.subwaygame.R
 import com.example.subwaygame.data.Player
+import com.example.subwaygame.data.PopWindow
 import kotlinx.android.synthetic.main.activity_main.*
 import org.litepal.LitePal
 import org.litepal.crud.LitePalSupport
@@ -21,6 +22,64 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
+    }
+
+    private fun addAchievement(i:Int?){
+        var flag = true
+        when(i){
+            1 -> {
+                if (MyApplication.getInstance().waterTimes >= 1000)
+                    MyApplication.getInstance().changeAchievementList(0,"1st")
+                else if(MyApplication.getInstance().waterTimes >= 500)
+                    MyApplication.getInstance().changeAchievementList(0,"2nd")
+                else if(MyApplication.getInstance().waterTimes >= 1)
+                    MyApplication.getInstance().changeAchievementList(0,"3rd")
+                else flag = false
+            }
+
+            2 ->{
+                if (MyApplication.getInstance().cutTimes >= 1000)
+                    MyApplication.getInstance().changeAchievementList(1,"1st")
+                else if (MyApplication.getInstance().cutTimes >= 500)
+                    MyApplication.getInstance().changeAchievementList(1,"2nd")
+                else if(MyApplication.getInstance().cutTimes >= 1)
+                    MyApplication.getInstance().changeAchievementList(1,"3rd")
+                else flag = false
+            }
+
+            3 ->{
+                if(MyApplication.getInstance().waterNumber >= 1000)
+                    MyApplication.getInstance().changeAchievementList(2,"1st")
+                else if(MyApplication.getInstance().waterNumber >= 500)
+                    MyApplication.getInstance().changeAchievementList(2,"2nd")
+                else if(MyApplication.getInstance().waterNumber >= 200)
+                    MyApplication.getInstance().changeAchievementList(2,"3rd")
+                else flag = false
+            }
+
+            4 ->{
+                if (MyApplication.getInstance().flowers >= 30)
+                    MyApplication.getInstance().changeAchievementList(3,"1st")
+                else if (MyApplication.getInstance().flowers >= 10)
+                    MyApplication.getInstance().changeAchievementList(3,"2nd")
+                else if (MyApplication.getInstance().flowers >= 10)
+                    MyApplication.getInstance().changeAchievementList(3,"3rd")
+                else flag = false
+            }
+
+            5 ->{
+                if(MyApplication.getInstance().waterTimes >= 1000 && MyApplication.getInstance().cutTimes >= 1000)
+                    MyApplication.getInstance().changeAchievementList(4,"1st")
+                else if(MyApplication.getInstance().waterTimes >= 500 && MyApplication.getInstance().cutTimes >= 500)
+                    MyApplication.getInstance().changeAchievementList(4,"2nd")
+                else if(MyApplication.getInstance().waterTimes >= 1 && MyApplication.getInstance().cutTimes >= 1)
+                    MyApplication.getInstance().changeAchievementList(4,"3rd")
+                else flag = false
+            }
+        }
+        if (flag){
+            PopWindow.show(this,"获得新成就")
+        }
     }
 
     private fun initView(){
@@ -51,6 +110,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     private fun water(){
         if (MyApplication.getInstance().waterNumber > 10){
             MyApplication.getInstance().waterNumber -= 10
+            MyApplication.getInstance().waterTimes ++
             var t = 1.0
             if (MyApplication.getInstance().flower.cutFunction > 0){
                 t+=0.5
@@ -66,6 +126,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             if (yet/100 != MyApplication.getInstance().flower.waterNumber/100)
                 initFlower()
             Toast.makeText(this,"浇水了！！", Toast.LENGTH_SHORT).show()
+            addAchievement(1)
+            addAchievement(5)
         }else
             Toast.makeText(this,"没水啦，快去获取吧！！", Toast.LENGTH_SHORT).show()
         Log.d("water",MyApplication.getInstance().waterNumber.toString()+":"+MyApplication.getInstance().flower.waterNumber)
@@ -73,7 +135,10 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
     private fun cut(){
         MyApplication.getInstance().flower.cutFunction+=5
+        MyApplication.getInstance().cutTimes ++
         Toast.makeText(this,"修剪了！！", Toast.LENGTH_SHORT).show()
+        addAchievement(2)
+        addAchievement(5)
     }
 
     private fun fertilize(){

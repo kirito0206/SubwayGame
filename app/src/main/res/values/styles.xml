@@ -15,4 +15,9 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="PopupTopAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
+    </style>
+
 </resources>

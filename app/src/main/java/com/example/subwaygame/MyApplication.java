@@ -25,8 +25,10 @@ public class MyApplication extends Application {
         if (players != null && !players.isEmpty()){
             player = players.get(0);
         }*/
+        List<String> list = new ArrayList<>();
+        for(int i = 0;i < 6;i++)list.add("no");
         if (player == null){
-            player = new Player("kirito","123",new ArrayList<String>(),0,100,1,new Flower());
+            player = new Player("kirito","123",list,0,100,1,new Flower());
             player.save();
         }
     }
