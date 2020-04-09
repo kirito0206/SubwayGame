@@ -30,7 +30,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="220dp">
+            android:layout_marginTop="180dp">
             <TextView
                 android:id="@+id/question_text"
                 android:layout_width="match_parent"

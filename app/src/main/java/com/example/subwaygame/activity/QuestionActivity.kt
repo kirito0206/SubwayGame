@@ -73,7 +73,9 @@ class QuestionActivity : AppCompatActivity() {
                 if (questions != null && questions.msg == "success" && questions.newslist.isNotEmpty()) {
                     questionText = questions.newslist[0].quest
                     answerText = questions.newslist[0].result
-                    Log.d("132",questionText+":"+answerText)
+                    answerText.trim()
+                    answerText.replace(" ","")
+                    answerText.replace(" ","")
                 }
                 var message = Message()
                 message.what = 1
@@ -109,7 +111,7 @@ class QuestionActivity : AppCompatActivity() {
         MyApplication.getInstance().waterNumber+=10
         var inflater = LayoutInflater.from(application)
         var view = inflater.inflate(R.layout.dialog_item,null)
-        view.hint_text.text = "很遗憾，回答错误！！"
+        view.hint_text.text = "很遗憾，回答错误！！正确答案：$answerText"
         view.hint_button.text = "领取奖励+10mL水分"
         view.hint_button.setOnClickListener(View.OnClickListener {
             dialog.dismiss()
