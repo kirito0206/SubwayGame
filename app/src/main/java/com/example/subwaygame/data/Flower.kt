@@ -1,9 +1,10 @@
 package com.example.subwaygame.data
 
-data class Flower (
+import org.litepal.crud.LitePalSupport
+
+class Flower(
     var name : String = "",
-    var stage : String = "",
     var waterNumber : Int = 0,
     var cutFunction: Int = 0,
     var fertilizerFunction : Int = 0
-)
+) : LitePalSupport(){}

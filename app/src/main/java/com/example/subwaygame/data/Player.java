@@ -11,19 +11,21 @@ public class Player extends LitePalSupport {
     private int flowers;
     private int waterNumber;
     private int fertilizerNumber;
-    private Flower flower;
-    private int waterTimes = 0;
-    private int cutTimes = 0;
+    private int waterTimes;
+    private int cutTimes;
+
+    public Player(){}
 
 
-    public Player(String name, String headPicture, List<String> achievementList, int flowers, int waterNumber, int fertilizerNumber, Flower flower) {
+    public Player(String name, String headPicture, List<String> achievementList, int flowers, int waterNumber, int fertilizerNumber,int waterTimes,int cutTimes) {
         this.name = name;
         this.headPicture = headPicture;
         this.achievementList = achievementList;
         this.flowers = flowers;
         this.waterNumber = waterNumber;
         this.fertilizerNumber = fertilizerNumber;
-        this.flower = flower;
+        this.waterTimes = waterTimes;
+        this.cutTimes = cutTimes;
     }
 
     public int getFertilizerNumber() {
@@ -87,11 +89,4 @@ public class Player extends LitePalSupport {
         this.achievementList.set(pos, string);
     }
 
-    public Flower getFlower() {
-        return flower;
-    }
-
-    public void setFlower(Flower flower) {
-        this.flower = flower;
-    }
 }

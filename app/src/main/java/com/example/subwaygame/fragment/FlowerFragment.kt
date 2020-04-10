@@ -18,9 +18,9 @@ class FlowerFragment : Fragment() {
         var giftList = ArrayList<Gift>()
         giftList.add(Gift(R.drawable.keycircle,"地铁纪念钥匙扣","需要鲜花*3"))
         giftList.add(Gift(R.drawable.u,"地铁纪念U盘","需要鲜花*5"))
-        giftList.add(Gift(R.drawable.one_6,"百合花","需要鲜花*3"))
-        giftList.add(Gift(R.drawable.one_6,"海棠花","需要鲜花*3"))
-        giftList.add(Gift(R.drawable.one_6,"水仙花","需要鲜花*3"))
+        giftList.add(Gift(R.drawable.six_1,"百合花","需要鲜花*3"))
+        giftList.add(Gift(R.drawable.six_1,"海棠花","需要鲜花*3"))
+        giftList.add(Gift(R.drawable.six_1,"水仙花","需要鲜花*3"))
         view.grid_view.adapter = GiftGridAdapter(MyApplication.getContext(),giftList)
         return view
     }

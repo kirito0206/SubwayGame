@@ -27,7 +27,7 @@ class BagActivity : AppCompatActivity() {
         var giftList = ArrayList<Gift>()
         if (MyApplication.getInstance().waterNumber > 0) giftList.add(Gift(R.drawable.addwater,"水分","拥有数量"+MyApplication.getInstance().waterNumber+"mL"))
         if (MyApplication.getInstance().fertilizerNumber > 0) giftList.add(Gift(R.drawable.fertilize,"肥料","拥有数量*"+MyApplication.getInstance().fertilizerNumber))
-        if (MyApplication.getInstance().flowers > 0) giftList.add(Gift(R.drawable.one_6,"水分","拥有数量*"+MyApplication.getInstance().flowers))
+        if (MyApplication.getInstance().flowers > 0) giftList.add(Gift(R.drawable.six_1,"水分","拥有数量*"+MyApplication.getInstance().flowers))
         grid_bag_view.adapter = GiftGridAdapter(this,giftList)
     }
 }

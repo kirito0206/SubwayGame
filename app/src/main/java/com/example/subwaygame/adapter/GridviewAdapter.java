@@ -22,8 +22,11 @@ import java.util.List;
 
 import static org.litepal.LitePalBase.TAG;
 
-public class GridviewAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+public class GridviewAdapter extends BaseAdapter{
+
     private GridView gridView;
+    private Dialog dialog;
+
     Context context;
     int[] image = {R.drawable.achievement, R.drawable.achievement, R.drawable.achievement, R.drawable.achievement, R.drawable.achievement,
             R.drawable.achievement};
@@ -60,6 +63,32 @@ public class GridviewAdapter extends BaseAdapter implements AdapterView.OnItemCl
 
         Glide.with(context).load(image[position]).override(200,200).into(imageView);
         textView.setText(name[position]);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=LayoutInflater.from( context);
+                View view1 = inflater.inflate(R.layout.dialog,null);
+                TextView textView;
+                ImageView imageView;
+                textView = (TextView)view1.findViewById(R.id.text1);
+                imageView = (ImageView)view1.findViewById(R.id.img);
+                imageView.setImageResource(image[position]);
+                if(name[position] == str[18]) {
+                    textView.setText("您暂未解锁该成就");
+                }
+                else textView.setText("你已经解锁了 "+name[position]+" 成就！");
+                AlertDialog.Builder builder=new AlertDialog.Builder( context );
+                builder.setView( view1 );
+                dialog=builder.create();//创建对话框
+                dialog.show();//显示对话框
+                view1.findViewById(R.id.but).setOnClickListener( new View.OnClickListener() {//获取布局里面按钮
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();//点击按钮对话框消失
+                    }
+                } );
+            }
+        });
         return view;
     }
 
@@ -67,7 +96,7 @@ public class GridviewAdapter extends BaseAdapter implements AdapterView.OnItemCl
         for(int i = 0; i < list.size();i++){
             switch(list.get(i)){
                 case "no":
-                    image[i] = R.drawable.achievement;
+                    image[i] = R.drawable.yet;
                     name[i] = "暂未解锁";
                     break;
                 case "3rd":
@@ -85,35 +114,5 @@ public class GridviewAdapter extends BaseAdapter implements AdapterView.OnItemCl
                 default:break;
             }
         }
-    }
-
-    Dialog dialog;
-
-
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.e("123","456");
-        LayoutInflater inflater=LayoutInflater.from( context);
-        View view1 = inflater.inflate(R.layout.dialog,null);
-        TextView textView;
-        ImageView imageView;
-        textView = (TextView)view1.findViewById(R.id.text1);
-        imageView = (ImageView)view1.findViewById(R.id.img);
-        imageView.setImageResource(image[position]);
-        if(name[position] == str[18]) {
-            textView.setText("您暂未解锁该成就");
-        }
-        else textView.setText("你已经解锁了 "+name[position]+" 成就！");
-        AlertDialog.Builder builder=new AlertDialog.Builder( context );
-        builder.setView( view1 );
-        dialog=builder.create();//创建对话框
-        dialog.show();//显示对话框
-        view1.findViewById(R.id.but).setOnClickListener( new View.OnClickListener() {//获取布局里面按钮
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();//点击按钮对话框消失
-            }
-        } );
     }
 }

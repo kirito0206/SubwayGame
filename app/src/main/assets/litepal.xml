@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value = "Player"></dbname>
+    <dbname value = "PlayerStore"></dbname>
     <version value = "1" ></version>
     <list>
         <mapping class = "com.example.subwaygame.data.Player"></mapping>
+        <mapping class = "com.example.subwaygame.data.Flower"></mapping>
     </list>
 </litepal>

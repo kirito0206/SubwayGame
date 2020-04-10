@@ -33,12 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exchange_button"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/fertilizeanimation"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:src="@drawable/fertilizeanimation"/>
 
     <ImageView
         android:id="@+id/flower_image"
