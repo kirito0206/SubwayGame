@@ -35,7 +35,7 @@ public class PopWindow {
 
 
         handler.removeMessages(1);
-        handler.sendEmptyMessageDelayed(1, 5000);
+        handler.sendEmptyMessageDelayed(1, 1000);
 
     }
 

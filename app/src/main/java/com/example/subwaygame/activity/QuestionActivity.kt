@@ -76,6 +76,7 @@ class QuestionActivity : AppCompatActivity() {
                     answerText.trim()
                     answerText.replace(" ","")
                     answerText.replace(" ","")
+                    answerText.trim()
                 }
                 var message = Message()
                 message.what = 1

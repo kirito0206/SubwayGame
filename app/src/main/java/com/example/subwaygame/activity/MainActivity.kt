@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     private fun water(){
         val players = LitePal.findAll(Player::class.java)
         Log.d("litepal", "" + players.size)
-        if (MyApplication.getInstance().waterNumber > 10){
+        if (MyApplication.getInstance().waterNumber >= 10){
             waterAnimation()
             MyApplication.getInstance().waterNumber -= 10
             MyApplication.getInstance().waterTimes ++
@@ -142,7 +142,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             //每过一百检查一次生长阶段
             if (yet/100 != MyApplication.getFlowerInstance().waterNumber/100)
                 initFlower()
-            Toast.makeText(this,"浇水了！！", Toast.LENGTH_SHORT).show()
             addAchievement(1)
             addAchievement(5)
         }else
@@ -154,7 +153,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         MyApplication.getFlowerInstance().cutFunction+=5
         cutAnimation()
         MyApplication.getInstance().cutTimes ++
-        Toast.makeText(this,"修剪了！！", Toast.LENGTH_SHORT).show()
         addAchievement(2)
         addAchievement(5)
     }
@@ -164,7 +162,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             fertilizeAnimation()
             MyApplication.getInstance().fertilizerNumber--
             MyApplication.getFlowerInstance().fertilizerFunction+=3
-            Toast.makeText(this,"施肥了！！", Toast.LENGTH_SHORT).show()
         }else{
             Toast.makeText(this,"没有可施肥的肥料，快去乘车/每日问答获取吧！！", Toast.LENGTH_SHORT).show()
         }
@@ -202,15 +199,14 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
     @SuppressLint("ResourceType")
     private fun initFlower(){
-        var flowerArray = resources.obtainTypedArray(R.array.flower_images)
         var t = MyApplication.getFlowerInstance().waterNumber
         when{
-            t<100 -> flower_image.setBackgroundResource(R.drawable.anim_five_list)
-            t in 100..200 -> flower_image.setImageResource(flowerArray.getResourceId(1,0))
-            t in 200..400 -> flower_image.setImageResource(flowerArray.getResourceId(2,0))
-            t in 400..600 -> flower_image.setImageResource(flowerArray.getResourceId(3,0))
-            t in 600..800 -> flower_image.setImageResource(flowerArray.getResourceId(4,0))
-            t in 800..1000 -> flower_image.setImageResource(flowerArray.getResourceId(5,0))
+            t<100 -> flower_image.setBackgroundResource(R.drawable.anim_one_list)
+            t in 100..200 -> flower_image.setBackgroundResource(R.drawable.anim_two_list)
+            t in 200..400 -> flower_image.setBackgroundResource(R.drawable.anim_three_list)
+            t in 400..600 -> flower_image.setBackgroundResource(R.drawable.anim_four_list)
+            t in 600..800 -> flower_image.setBackgroundResource(R.drawable.anim_five_list)
+            t in 800..1000 -> flower_image.setBackgroundResource(R.drawable.anim_six_list)
         }
     }
 

@@ -6,12 +6,15 @@
         android:drawable="@drawable/four_1"
         android:duration="200"/>
     <item
+        android:drawable="@drawable/four_3"
+        android:duration="200"/>
+    <item
         android:drawable="@drawable/four_2"
+        android:duration="200"/>
+    <item
+        android:drawable="@drawable/four_3"
         android:duration="200"/>
     <item
         android:drawable="@drawable/four_1"
-        android:duration="200"/>
-    <item
-        android:drawable="@drawable/four_2"
         android:duration="200"/>
 </animation-list>
